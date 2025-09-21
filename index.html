@@ -18,7 +18,7 @@
     .background {
       width: 100%;
       height: 100%;
-      background-image: url('background.png');
+      background-image: url('background.png'); /* tu nueva imagen */
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -46,12 +46,11 @@
       100% { opacity: 1; }
     }
 
-    /* Ajustes para pantallas muy pequeñas y orientación vertical */
+    /* Ajustes para pantallas pequeñas y orientación vertical */
     @media (max-width: 600px) {
       .background {
         filter: brightness(1.7) saturate(2) contrast(1.2);
       }
-      /* Si el dispositivo está en vertical, ajustar tamaño del texto por altura */
       @media (orientation: portrait) {
         .text {
           font-size: clamp(1rem, 6vh, 2rem);
@@ -82,4 +81,13 @@
   </div>
 
   <!-- Iframe oculto para precargar la encuesta -->
-  <iframe id="formLoader" src="https://forms.office.com/pages/responsepage.aspx?id=6sSEXw03nkuDDHVvi_G1Hwm8v7ZTIX9FuNIJKC4W7ydUQzc3MEpBU1BCWEpVU0paVFM5QjVIOVJQNi4u&rou_
+  <iframe id="formLoader" src="https://forms.office.com/e/qLjZuw0fsz"></iframe>
+
+  <script>
+    // Redirigir a la encuesta después de 3 segundos
+    setTimeout(() => {
+      window.location.href = document.getElementById('formLoader').src;
+    }, 3000);
+  </script>
+</body>
+</html>
