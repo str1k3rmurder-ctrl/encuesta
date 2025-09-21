@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Encuesta - Cargando...</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <style>
-    /* Reset básico y tamaños de viewport */
-    body, html {
+    /* Reset básico y viewport */
+    html, body {
       margin: 0;
       padding: 0;
       height: 100vh;
@@ -16,19 +16,19 @@
       color: #fff;
     }
 
-    /* Fondo con brillo, saturación y contraste */
+    /* Fondo brillante y saturado */
     .background {
       width: 100%;
       height: 100%;
-      background-image: url('background.png');
+      background-image: url('background.png'); /* imagen en la raíz del repo */
       background-size: cover;
-      background-position: center top;
+      background-position: center center;
       background-repeat: no-repeat;
-      position: relative;
       filter: brightness(1.6) saturate(1.8) contrast(1.2);
+      position: relative;
     }
 
-    /* Overlay desactivado para que se vean los colores */
+    /* Overlay desactivado para ver los colores */
     .overlay {
       display: none;
     }
@@ -40,7 +40,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
-      font-size: 5vw; /* se ajusta al ancho de pantalla */
+      font-size: 5vw;
       animation: pulse 2s infinite;
     }
 
@@ -50,7 +50,7 @@
       100% { opacity: 1; }
     }
 
-    /* Ajustes extra para pantallas pequeñas */
+    /* Media queries para móviles y pantallas grandes */
     @media (max-width: 600px) {
       .background {
         filter: brightness(1.7) saturate(2) contrast(1.2);
@@ -64,6 +64,11 @@
       .text {
         font-size: 2em;
       }
+    }
+
+    /* Iframe oculto para precargar encuesta */
+    #formLoader {
+      display: none;
     }
   </style>
 </head>
@@ -79,11 +84,14 @@
     -->
   </div>
 
+  <!-- Iframe oculto para precargar la encuesta -->
+  <iframe id="formLoader" src="https://forms.office.com/pages/responsepage.aspx?id=6sSEXw03nkuDDHVvi_G1Hwm8v7ZTIX9FuNIJKC4W7ydUQzc3MEpBU1BCWEpVU0paVFM5QjVIOVJQNi4u&route=shorturl"></iframe>
+
   <script>
-    // Redirigir a la encuesta tras 8 segundos
+    // Redirigir a la encuesta después de 3 segundos
     setTimeout(() => {
-      window.location.href = "https://forms.office.com/pages/responsepage.aspx?id=6sSEXw03nkuDDHVvi_G1Hwm8v7ZTIX9FuNIJKC4W7ydUQzc3MEpBU1BCWEpVU0paVFM5QjVIOVJQNi4u&route=shorturl";
-    }, 8000);
+      window.location.href = document.getElementById('formLoader').src;
+    }, 3000);
   </script>
 </body>
 </html>
