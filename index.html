@@ -51,4 +51,39 @@
     }
 
     /* Ajustes extra para pantallas pequeñas */
-    @media (ma
+    @media (max-width: 600px) {
+      .background {
+        filter: brightness(1.7) saturate(2) contrast(1.2);
+      }
+      .text {
+        font-size: 6vw;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .text {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="overlay"></div>
+    <!-- Texto opcional -->
+    <!--
+    <div class="text">
+      🌙 Bienvenido a Neo-Tokyo...<br>
+      Cargando encuesta...
+    </div>
+    -->
+  </div>
+
+  <script>
+    // Redirigir a la encuesta tras 8 segundos
+    setTimeout(() => {
+      window.location.href = "https://forms.office.com/pages/responsepage.aspx?id=6sSEXw03nkuDDHVvi_G1Hwm8v7ZTIX9FuNIJKC4W7ydUQzc3MEpBU1BCWEpVU0paVFM5QjVIOVJQNi4u&route=shorturl";
+    }, 8000);
+  </script>
+</body>
+</html>
